@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- Database setting -->
+		<property name="connection.username">postgres</property>
+		<property name="connection.password">1234567</property>
+		<property name="connection.driver_class">org.postgresql.Driver</property>
+		<property name="connection.url">jdbc:postgresql://localhost:5432/gp_batch_processing</property>
+
+		<!-- JDBC connection pool (use the built-in) -->
+		<property name="connection.pool_size">4</property>
+
+		<!-- SQL dialect -->
+		<property name="dialect">org.hibernate.dialect.PostgreSQL94Dialect</property>
+
+		<!-- Enable Hibernate's automatic session context management -->
+		<property name="current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
+
+		<!-- Enable SQL comment -->
+		<property name="use_sql_comments">true</property>
+
+		<!-- egister an implementation of the StatementInspector interface -->
+<!--		<property name="session_factory.statement_inspector">com.gpcoder.SqlCommentStatementInspector</property>-->
+
+		<!-- Show all executed SQL to console -->
+		<property name="jdbc.batch_size">0</property>
+		<property name="jdbc.order_inserts">true</property>
+		<property name="jdbc.order_updates">true</property>
+		<property name="jdbc.batch_versioned_data">true</property>
+		<property name="generate_statistics">true</property>
+
+		<mapping class="com.gpcoder.entities.Tag" />
+		<mapping class="com.gpcoder.entities.Comment" />
+
+	</session-factory>
+</hibernate-configuration>
